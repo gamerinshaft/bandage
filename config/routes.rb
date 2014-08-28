@@ -60,6 +60,11 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   resources :users
+  resources :pages, only: [] do
+    collection do
+      get 'public'
+    end
+  end
   root :to => 'users#index'
   resources :user_sessions
   resources :users
