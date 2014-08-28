@@ -7,11 +7,14 @@
           %li= msg
 
   .field
-    = f.label :password
-    = f.number_field :password
+    = label_tag :email
+    = text_field_tag :email
   .field
-    = f.label :password_confirmation
-    = f.text_area :password_confirmation
+    = label_tag :password
+    = password_field_tag :password
+  .field
+    = label_tag :password_confirmation
+    = password_field_tag :password_confirmation
   .actions
-    = f.submit 'Save'
+    = submit_tag "Login"
 
