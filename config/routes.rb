@@ -65,7 +65,7 @@ Rails.application.routes.draw do
       get 'public'
     end
   end
-  root :to => 'users#index'
+  root :to => 'pages#public'
   resources :user_sessions
   resources :users
 
