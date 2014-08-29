@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
   get 'user_sessions/new'
 
   get 'user_sessions/create'
