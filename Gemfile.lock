@@ -40,6 +40,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     erubis (2.7.0)
+    event-calendar (2.3.3)
     execjs (2.2.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -143,6 +144,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0)
+  event-calendar
   font-awesome-rails
   haml-rails
   jbuilder (~> 2.0)
