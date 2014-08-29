@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title Bandage
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .header--public
+      .header-content
+        / - if current_user
+        /   = link_to "Edit Profile", edit_user_path(current_user.id)
+        /   = link_to "Logout", :logout, method: :post
+        / - else
+        = link_to "新規登録", new_user_path
+
+        \#{link_to "ログイン", :login}
+    = yield
