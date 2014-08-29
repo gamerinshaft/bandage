@@ -1,0 +1,242 @@
+.row15:after
+  display: table
+  content: " "
+.row15
+  margin-right: -15px
+  margin-left: -15px
+.absolute
+  position: absolute
+.bottom-initial
+  bottom: initial !important
+.bottom0
+  bottom: 0 !important
+.bottom10
+  bottom: 10px !important
+.dashed
+  border: dashed 1px #ddd
+.min-height120
+  min-height: 120px
+.sub
+  vertical-align: sub
+.table
+  display: table
+.table-cell
+  display: table-cell
+.top0
+  top: 0
+.text-deco-noneI
+  text-decoration: none !important
+.text-light
+  color: #aaa
+.display-none
+  display: none
+.height-transition035
+  -webkit-transition: height 0.35s ease
+  transition: height 0.35s ease
+.bold
+  font-weight: bold
+.none
+  display: none
+.normal
+  font-weight: normal
+.inlineI
+  display: inline !important
+.block
+  display: block
+.border0-bottom
+  border-bottom: 0px solid #ddd !important
+.box-inline
+  display: inline-block
+.box-inline-top
+  display: inline-block
+  vertical-align: top
+.box-inline-bottom
+  display: inline-block
+  vertical-align: bottom
+.box-inline-middle
+  display: inline-block
+  vertical-align: middle
+.box-center
+  margin-right: auto
+  margin-left: auto
+.border
+  border: 1px solid  #ccc
+.border-5
+  border: 1px solid #555
+.border-w
+  border: 1px solid #fff
+.border-d
+  border: 1px solid  #ddd
+.border-top
+  border-top: 1px solid #ccc
+.border-top-dI
+  border-top: 1px solid #ddd !important
+.border-right
+  border-right: 1px solid #ccc
+.border-bottom
+  border-bottom: 1px solid #ccc
+.border-bottom-d
+  border-bottom: 1px solid #ddd
+.radius0
+  border-radius: 0px
+.radius0I
+  border-radius: 0px !important
+.border-left
+  border-left: 1px solid #ccc
+.center
+  text-align: center
+.clear
+  clear: both
+.color-aaa
+  color: #aaa
+.color-999
+  color: #999
+.color-ccc
+  color: #ccc
+.color-ddd
+  color: #ddd
+.color-666
+  color: #666
+.col-box-inline
+  float: none
+  display: inline-block
+  vertical-align: top
+.fixed
+  position: fixed
+.inline
+  display: inline
+.margin0-topI
+  margin-top: 0px !important
+.margin5-topI
+  margin-top: 5px !important
+.margin10-rightI
+  margin-right: 10px !important
+.margin-30-topI
+  margin-top: -30px !important
+.max-w
+  width: 100%
+.middle
+  vertical-align: middle
+.normal
+  font-weight: normal
+.over-vis
+  overflow: visible
+.padding0-bottomI
+  padding-bottom: 0px !important
+.padding10I
+  padding: 10px !important
+.right0
+  right: 0 !important
+.relative
+  position: relative
+.white-space-normal
+  white-space: normal !important
+.z-index1
+  z-index: 1
+.z-index2
+  z-index: 2
+//line-heightの設定
+@for $i from 10 through 30
+  .line-height-#{$i}
+    line-height: #{$i}px
+//リンクの中にリンクが入ってるときにつかう
+.box-link
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 0
+  left: 0
+$direction: left, right, top, bottom
+@each $dir in $direction
+  .#{$dir}0
+    #{$dir}: 0
+//borderの設定
+$direction: left, right, top, bottom, ends, side
+@for $i from 0 through 1
+  .border#{$i}
+    border: solid #{$i}px #ccc
+  .border#{$i}-d
+    border: solid #{$i}px #ddd
+  @each $dir in $direction
+    @if $dir == ends
+      .border#{$i}-#{$dir}
+        border-top: solid #{$i}px #ccc
+        border-bottom: solid #{$i}px #ccc
+      .border#{$i}-d-#{dir}
+        border-top: solid #{$i}px #ddd
+        border-bottom: solid #{$i}px #ddd
+    @else if $dir == side
+      .border#{$i}-#{$dir}
+        border-left: solid #{$i}px #ccc
+        border-right: solid #{$i}px #ccc
+      .border#{$i}-d-#{$dir}
+        border-left: solid #{$i}px #ddd
+        border-right: solid #{$i}px #ddd
+    @else
+      .border#{$i}-#{$dir}
+        border-#{$dir}: solid #{$i}px #ccc
+      .border#{$i}-d-#{$dir}
+        border-#{$dir}: solid #{$i}px #ddd
+
+
+//colorとbackground-colorの設定
+$colors: black,navy,darkblue,mediumblue,blue,darkgreen,green,teal,darkcyan,deepskyblue,darkturquoise,mediumspringgreen,lime,springgreen,aqua,cyan,midnightblue,dodgerblue,lightseagreen,forestgreen,seagreen,darkslategray,darkslategrey,limegreen,mediumseagreen,turquoise,royalblue,steelblue,darkslateblue,mediumturquoise,indigo,darkolivegreen,cadetblue,cornflowerblue,mediumaquamarine,dimgray,dimgrey,slateblue,olivedrab,slategray,slategrey,lightslategray,lightslategrey,mediumslateblue,lawngreen,chartreuse,aquamarine,maroon,purple,olive,gray,grey,skyblue,lightskyblue,blueviolet,darkred,darkmagenta,saddlebrown,darkseagreen,lightgreen,mediumpurple,darkviolet,palegreen,darkorchid,yellowgreen,sienna,brown,darkgray,darkgrey,lightblue,greenyellow,paleturquoise,lightsteelblue,powderblue,firebrick,darkgoldenrod,mediumorchid,rosybrown,darkkhaki,silver,mediumvioletred,indianred,peru,chocolate,tan,lightgray,lightgrey,thistle,orchid,goldenrod,palevioletred,crimson,gainsboro,plum,burlywood,lightcyan,lavender,darksalmon,violet,palegoldenrod,lightcoral,khaki,aliceblue,honeydew,azure,sandybrown,wheat,beige,whitesmoke,mintcream,ghostwhite,salmon,antiquewhite,linen,lightgoldenrodyellow,oldlace,red,fuchsia,magenta,deeppink,orangered,tomato,hotpink,coral,darkorange,lightsalmon,orange,lightpink,pink,gold,peachpuff,navajowhite,moccasin,bisque,mistyrose,blanchedalmond,papayawhip,lavenderblush,seashell,cornsilk,lemonchiffon,floralwhite,snow,yellow,lightyellow,ivory,white
+@each $color in $colors
+  .bg-#{$color}
+    background-color: #{$color}
+  .color-#{$color}
+    color: #{$color}
+
+.bg-blue
+  background-color: #f4f8fa
+.bg-pink
+  background-color: #f9f3f6
+.bg-green
+  background-color: #f3f8f4
+.bg-yellow
+  background-color: #faf9f3
+.bg-red
+  background-color: #f9f4f3
+
+//paddingとmarginの各四方向および上下,左右,上下左右の設定
+$spatial: padding, margin
+$direction: left, right, top, bottom, ends, side
+@for $i from -20 through 70
+  @each $spa in $spatial
+    .#{$spa}#{$i}
+      #{$spa}: #{$i}px
+    @each $dir in $direction
+      @if $dir == ends
+        .#{$spa}#{$i}-#{$dir}
+          #{$spa}-top: #{$i}px
+          #{$spa}-bottom: #{$i}px
+        .#{$spa}#{$i}-#{$dir}I
+          #{$spa}-top: #{$i}px !important
+          #{$spa}-bottom: #{$i}px !important
+      @else if $dir == side
+        .#{$spa}#{$i}-#{$dir}
+          #{$spa}-left: #{$i}px
+          #{$spa}-right: #{$i}px
+        .#{$spa}#{$i}-#{$dir}I
+          #{$spa}-left: #{$i}px !important
+          #{$spa}-right: #{$i}px !important
+      @else
+        .#{$spa}#{$i}-#{$dir}
+          #{$spa}-#{$dir}: #{$i}px
+        .#{$spa}#{$i}-#{$dir}I
+          #{$spa}-#{$dir}: #{$i}px !important
+
+//absolute 位置
+$direction: left, right, top, bottom
+@for $i from -50 through 50
+  @each $dir in $direction
+    .#{$dir}#{$i}
+      #{$dir}: #{$i}px
+
+
+//font-sizeの設定
+@for $i from 5 through 40
+  .font-size-#{$i}
+    font-size: #{$i}px
+  .font-size-#{$i}I
+    font-size: #{$i}px !important
