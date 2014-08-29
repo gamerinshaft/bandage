@@ -5,18 +5,18 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = label_tag :email
-    = text_field_tag :email
-  .field
-    = label_tag :password
-    = password_field_tag :password
-  .field
-    = label_tag :password_confirmation
-    = password_field_tag :password_confirmation
-  .actions
-    = submit_tag "Login"
+  .form__content
+    .content__field
+      = label_tag :email
+      = text_field_tag :email, "", class: "form-control"
+    .content__field
+      = label_tag :password
+      = password_field_tag :password, "", class: "form-control"
+    .content__field
+      = label_tag :password_confirmation
+      = password_field_tag :password_confirmation, "", class: "form-control"
+    .content__actions
+      = submit_tag "SignUp", class: "btn btn-success margin5-top"
 
   = link_to public_pages_path do
     戻る
