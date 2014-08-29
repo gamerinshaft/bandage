@@ -41,3 +41,4 @@ gem 'spring',        group: :development
 gem 'sorcery'
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'font-awesome-rails'
