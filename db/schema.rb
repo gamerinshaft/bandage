@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140830172903) do
 
-  create_table "events", force: true do |t|
-    t.integer  "user_id",    null: false
-    t.string   "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "groups", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -29,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140830172903) do
   end
 
   create_table "users", force: true do |t|
+    t.integer  "group_id"
     t.string   "email",            null: false
     t.string   "crypted_password", null: false
     t.string   "salt",             null: false

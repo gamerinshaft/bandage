@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  resources :groups
-
+  resources :groups do
+    resources :users
+  end
+  resources :pages, only: [] do
+    collection do
+      get 'public'
+    end
+  end
   get 'user_sessions/new'
 
   get 'user_sessions/create'
@@ -61,15 +67,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :users
-  resources :pages, only: [] do
-    collection do
-      get 'public'
-    end
-  end
   root :to => 'pages#public'
   resources :user_sessions
-  resources :users
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
