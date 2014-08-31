@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
-
+  before_action :set_params
   def index
   end
 
   def new
-    @user = User.new
   end
 
   def create
-    @user = User.new(user_params)
-
+    Rails.logger.debug params[:user].to_s + "----------------------"
+    @user = @group.users.build(params[:user])
+    -raise
     respond_to do |format|
       if @user.save
         format.html { redirect_to(:users, notice: 'User was successfully created')}
@@ -32,6 +32,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_params
+    @group = Group.find(params[:group_id])
+  end
 
   def user_params
     params.permit(:email, :password, :password_confirmation)

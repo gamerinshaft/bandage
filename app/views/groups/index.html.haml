@@ -1,4 +1,4 @@
-%h1 Listing groups
+%h1 どのグループに所属していますか？選択してください。
 
 %table
   %tr
@@ -7,13 +7,18 @@
     %th
     %th
 
-  - @groups.each do |group|
-    %tr
-      %td= group.name
-      %td= link_to 'Show', group
-      %td= link_to 'Edit', edit_group_path(group)
-      %td= link_to 'Destroy', group, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  = form_tag(action: "group") do
+    = select :value, :value, @groups.map{|t| [t.name, t.id]}
+    = submit_tag("save")
+
+
+
+
+  / %tr
+  /   %td= group.name
+  /   %td= link_to 'Show', group
+  /   %td= link_to 'Edit', edit_group_path(group)
+  /   %td= link_to 'Destroy', group, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Group', new_group_path
