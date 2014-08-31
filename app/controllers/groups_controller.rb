@@ -61,12 +61,10 @@ class GroupsController < ApplicationController
     end
   end
 
-  def group
-
+  def select
     @value = params[:value].fetch(:value)
     @group = Group.find(@value)
     redirect_to new_group_user_path(@group)
-
   end
 
   private

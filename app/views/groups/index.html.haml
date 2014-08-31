@@ -7,7 +7,7 @@
     %th
     %th
 
-  = form_tag(action: "group") do
+  = form_tag(action: "select") do
     = select :value, :value, @groups.map{|t| [t.name, t.id]}
     = submit_tag("save")
 

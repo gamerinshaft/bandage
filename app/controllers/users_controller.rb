@@ -8,12 +8,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    Rails.logger.debug params[:user].to_s + "----------------------"
-    @user = @group.users.build(params[:user])
-    -raise
+    @user = @group.users.build(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(:users, notice: 'User was successfully created')}
+        format.html { redirect_to(group_user_path(@group, @user), notice: 'User was successfully created')}
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -38,6 +36,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation)
   end
 end
