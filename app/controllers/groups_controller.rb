@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
+  skip_before_filter :require_login, only: [:new, :create, :show, :index, :group]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-
   # GET /groups
   # GET /groups.json
   def index
@@ -59,6 +59,14 @@ class GroupsController < ApplicationController
       format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def group
+
+    @value = params[:value].fetch(:value)
+    @group = Group.find(@value)
+    redirect_to new_group_user_path(@group)
+
   end
 
   private
