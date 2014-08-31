@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  skip_before_filter :require_login, only: [:new, :create, :show, :index, :group]
+  skip_before_filter :require_login, only: [:new, :create, :show, :index, :select]
   before_action :set_group, only: [:show, :edit, :update, :destroy]
   # GET /groups
   # GET /groups.json
