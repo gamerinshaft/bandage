@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :groups do
     resources :users
+    collection do
+      post 'group'
+    end
   end
   resources :pages, only: [] do
     collection do
